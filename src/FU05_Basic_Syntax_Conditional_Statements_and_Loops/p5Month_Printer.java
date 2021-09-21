@@ -1,4 +1,4 @@
-package SoftUni_Java_Fundamentals.FU05_Basic_Syntax_Conditional_Statements_and_Loops;
+package FU05_Basic_Syntax_Conditional_Statements_and_Loops;
 
 import java.util.Scanner;
 
