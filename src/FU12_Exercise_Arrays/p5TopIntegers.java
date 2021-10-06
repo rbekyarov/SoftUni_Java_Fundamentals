@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class p5TopIntegers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+<<<<<<< HEAD
         int[] array = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(e -> Integer.parseInt(e)).toArray();
 
 
@@ -13,6 +14,14 @@ public class p5TopIntegers {
         for (int index = 0; index < array.length ; index++) {
             boolean isBigerr = true;
             for (int i = index +1; i < array.length; i++) {
+=======
+        int[] array = Arrays.stream(scanner.nextLine()
+                .split(" ")).mapToInt(e -> Integer.parseInt(e)).toArray();
+
+        for (int index = 0; index < array.length; index++) {
+            boolean isBigerr = true;
+            for (int i = index + 1; i < array.length; i++) {
+>>>>>>> origin/main
                 if (!(array[index] > array[i])) {
                     isBigerr = false;
                     break;
