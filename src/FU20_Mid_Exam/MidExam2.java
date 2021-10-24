@@ -8,7 +8,7 @@ public class MidExam2 {
 
         Scanner scan = new Scanner(System.in);
         List<String> nameList = Arrays.stream(scan.nextLine().split(", ")).collect(Collectors.toList());
-        String input;
+        String input = "";
         int countBlacklisted = 0;
         int countLost = 0;
 
@@ -26,7 +26,8 @@ public class MidExam2 {
                     break;
                 case "Error":
                     if (Integer.parseInt(command[1]) >= 0 && Integer.parseInt(command[1]) < nameList.size()) {
-                        if (!nameList.get(Integer.parseInt(command[1])).equals("Blacklisted") && !nameList.get(Integer.parseInt(command[1])).equals("Lost")) {
+                        if (!nameList.get(Integer.parseInt(command[1])).equals("Blacklisted") && !nameList
+                                .get(Integer.parseInt(command[1])).equals("Lost")) {
                             System.out.printf("%s was lost due to an error.%n", nameList.get(Integer.parseInt(command[1])));
                             nameList.set(Integer.parseInt(command[1]), "Lost");
                             countLost++;
@@ -35,12 +36,14 @@ public class MidExam2 {
                     break;
                 case "Change":
                     if (Integer.parseInt(command[1]) >= 0 && Integer.parseInt(command[1]) < nameList.size()) {
-                        System.out.printf("%s changed his username to %s.%n", nameList.get(Integer.parseInt(command[1])), command[2]);
+                        System.out.printf("%s changed his username to %s.%n", nameList
+                                .get(Integer.parseInt(command[1])), command[2]);
                         nameList.set(Integer.parseInt(command[1]), command[2]);
                     }
                     break;
             }
         }
-        System.out.printf("Blacklisted names: %d%nLost names: %d%n%s", countBlacklisted, countLost, (String.join(" ", nameList)));
+        System.out.printf("Blacklisted names: %d%nLost names: %d%n%s", countBlacklisted, countLost,
+                (String.join(" ", nameList)));
     }
 }
