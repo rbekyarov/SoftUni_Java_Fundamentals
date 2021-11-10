@@ -10,12 +10,12 @@ public class p2RepeatStrings {
 
         for (String word: words){
 
-            String rpeateWord = rpeateWord (word, word.length());
-            System.out.print(rpeateWord);
+            String repeateWord = repeateWord (word, word.length());
+            System.out.print(repeateWord);
         }
     }
 
-    private static String rpeateWord(String word, int length) {
+    private static String repeateWord(String word, int length) {
         String result = "";
         for (int i = 0; i <length ; i++) {
             result+=word;
