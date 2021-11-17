@@ -1,4 +1,4 @@
-package FINAL_EXAM;
+package FU35_ExamPrep;
 
 import java.util.*;
 
