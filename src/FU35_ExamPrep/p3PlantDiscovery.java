@@ -58,11 +58,11 @@ public class p3PlantDiscovery {
         System.out.println("Plants for the exhibition:");
         plantMap.entrySet()
                 .stream()
-                .sorted((f, s) -> {
-                    int result = s.getValue().compareTo(f.getValue());
+                .sorted((e1, e2) -> {
+                    int result = e1.getValue().compareTo(e2.getValue());
                     if (result == 0) {
-                        double firstPlantAverageRating = plantsRating.get(f.getKey()).stream().mapToDouble(x -> x).average().orElse(0);
-                        double secondPlantAverageRating = plantsRating.get(s.getKey()).stream().mapToDouble(x -> x).average().orElse(0);
+                        double firstPlantAverageRating = plantsRating.get(e1.getKey()).stream().mapToDouble(e -> e).average().orElse(0);
+                        double secondPlantAverageRating = plantsRating.get(e2.getKey()).stream().mapToDouble(e -> e).average().orElse(0);
                         result = Double.compare(secondPlantAverageRating, firstPlantAverageRating);
                     }
                     return result;
