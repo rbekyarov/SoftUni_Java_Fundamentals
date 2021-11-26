@@ -101,18 +101,18 @@ public class p03_Need_for_Speed_III {
         }
         carMileage.entrySet().stream()
                 .sorted((s1, s2) -> s2.getValue().compareTo(s1.getValue()))
-                .forEach(s -> System.out.printf("%s -> Mileage: %d kms, Fuel in the tank: %d lt.%n", s.getKey(), s.getValue(), returnValue(s.getKey().toString(), carFuel)));
+                .forEach(s -> System.out.printf("%s -> Mileage: %d kms, Fuel in the tank: %d lt.%n", s.getKey(), s.getValue(), returnFuel(s.getKey().toString(), carFuel)));
     }
 
-    private static int returnValue(String carModel, Map<String, Integer> carFuel) {
-        int valueOfKey = 0;
+    private static int returnFuel(String carModel, Map<String, Integer> carFuel) {
+        int value = 0;
         for (Map.Entry<String, Integer> entry : carFuel.entrySet()) {
             if (carModel.equals(entry.getKey())) {
-                valueOfKey = entry.getValue();
+                value = entry.getValue();
             }
         }
 
-        return valueOfKey;
+        return value;
     }
 }
 
