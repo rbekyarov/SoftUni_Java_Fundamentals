@@ -111,7 +111,6 @@ public class p03_Need_for_Speed_III {
                 value = entry.getValue();
             }
         }
-
         return value;
     }
 }
