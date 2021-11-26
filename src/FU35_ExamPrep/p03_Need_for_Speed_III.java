@@ -37,6 +37,7 @@ public class p03_Need_for_Speed_III {
                         } else {
                             carMileage.remove(carModel);
                             carFuel.remove(carModel);
+                            System.out.printf("Time to sell the %s!%n", carModel);
                         }
                     } else {
                         System.out.println("Not enough fuel to make that ride");
@@ -45,13 +46,15 @@ public class p03_Need_for_Speed_III {
 
                 case "Refuel":
                     int refuel = Integer.parseInt(command.split(" : ")[2]);
-                    int currentFuel = carMileage.get(carModel);
-                    if (refuel + currentFuel < 70) {
+                    int currentFuel = carFuel.get(carModel);
+                    if (refuel + currentFuel < 75) {
                         carFuel.put(carModel, refuel + currentFuel);
+                        System.out.printf("%s refueled with %d liters%n", carModel, refuel);
                     } else {
-                        carFuel.put(carModel, 70);
+                        carFuel.put(carModel, 75);
+                        System.out.printf("%s refueled with %d liters%n", carModel, 75 - currentFuel);
                     }
-                    System.out.printf("%s refueled with %d liters%n", carModel, refuel);
+
                     break;
                 case "Revert":
                     int revertKilometers = Integer.parseInt(command.split(" : ")[2]);
@@ -67,8 +70,12 @@ public class p03_Need_for_Speed_III {
             }
             command = scanner.nextLine();
         }
-        System.out.println();
-
-
+        for (Map.Entry<String, Integer> entry : carMileage.entrySet()) {
+            for (Map.Entry<String, Integer> integerEntry : carFuel.entrySet()) {
+                if (entry.getKey().equals(integerEntry.getKey())) {
+                    System.out.printf("%s -> Mileage: %d kms, Fuel in the tank: %d lt.%n", entry.getKey(), entry.getValue(), integerEntry.getValue());
+                }
+            }
+        }
     }
 }
