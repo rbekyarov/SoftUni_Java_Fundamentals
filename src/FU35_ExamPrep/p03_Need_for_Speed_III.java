@@ -1,17 +1,16 @@
 package FU35_ExamPrep;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class p03_Need_for_Speed_III {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int numsCar = Integer.parseInt(scanner.nextLine());
-        Map<String, Integer> carMileage = new TreeMap<>();
-        Map<String, Integer> carFuel = new TreeMap<>();
+        Map<String, Integer> carMileage =
+                new TreeMap<String, Integer>(Collections.reverseOrder());
+        Map<String, Integer> carFuel =
+                new TreeMap<String, Integer>(Collections.reverseOrder());
         for (int i = 0; i < numsCar; i++) {
             String input = scanner.nextLine();
             String carModel = input.split("\\|")[0];
