@@ -56,6 +56,7 @@ public class p03_The_Pianist {
             }
             command = scanner.nextLine();
         }
+
         for (Map.Entry<String, String> entryComposer : pieceComposer.entrySet()) {
             for (Map.Entry<String, String> entryKey : pieceKey.entrySet()) {
                 if (entryComposer.getKey().equals(entryKey.getKey())) {
