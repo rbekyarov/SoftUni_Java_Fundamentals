@@ -28,10 +28,10 @@ public class p01Password_Reset {
                 case "Cut":
                     int index = Integer.parseInt(currentCommand[1]);
                     int length = Integer.parseInt(currentCommand[2]);
-                    sb.replace(index, index+length, "");
+                    sb.replace(index, index + length, "");
                     System.out.println(sb);
-
                     break;
+
                 case "Substitute":
                     String oldString = currentCommand[1];
                     String newString = currentCommand[2];
@@ -48,6 +48,6 @@ public class p01Password_Reset {
             }
             command = scanner.nextLine();
         }
-        System.out.println("Your password is: "+sb);
+        System.out.println("Your password is: " + sb);
     }
 }
