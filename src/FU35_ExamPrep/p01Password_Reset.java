@@ -49,5 +49,6 @@ public class p01Password_Reset {
             command = scanner.nextLine();
         }
         System.out.println("Your password is: " + sb);
+
     }
 }
