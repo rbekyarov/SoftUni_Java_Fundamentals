@@ -29,7 +29,7 @@ public class p03_Heroes_of_Code_and_Logic_VII {
             switch (commandName) {
                 case "Heal":
                     int healRecovered = Integer.parseInt(currentCommandArr[2]);
-                    int currentHeal= heroHIT.get(heroName);
+                    int currentHeal = heroHIT.get(heroName);
                     if (healRecovered + currentHeal > 100) {
                         heroHIT.put(heroName, 100);
                         System.out.printf("%s healed for %d HP!%n", heroName, 100 - currentHeal);
@@ -81,18 +81,9 @@ public class p03_Heroes_of_Code_and_Logic_VII {
                 .forEach(e -> {
                     System.out.println(e.getKey());
                     System.out.println("  HP: " + e.getValue());
-                    System.out.println("  MP: " + returnMP(e.getKey().toString(), heroMana));
+                    System.out.println("  MP: " + heroMana.get(e.getKey()));
 
                 });
     }
 
-    private static int returnMP(String heroName, Map<String, Integer> heroMana) {
-        int valueMP = 0;
-        for (Map.Entry<String, Integer> entry : heroMana.entrySet()) {
-            if (heroName.equals(entry.getKey())) {
-                valueMP = entry.getValue();
-            }
-        }
-        return valueMP;
-    }
 }
