@@ -82,8 +82,6 @@ public class p03_Heroes_of_Code_and_Logic_VII {
                     System.out.println(e.getKey());
                     System.out.println("  HP: " + e.getValue());
                     System.out.println("  MP: " + heroMana.get(e.getKey()));
-
                 });
     }
-
 }
