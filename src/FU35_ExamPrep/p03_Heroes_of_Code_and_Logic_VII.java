@@ -65,7 +65,7 @@ public class p03_Heroes_of_Code_and_Logic_VII {
                 case "CastSpell":
                     int needMP = Integer.parseInt(currentCommandArr[2]);
                     String spellName = currentCommandArr[3];
-                    if (heroMana.get(heroName) > needMP) {
+                    if (heroMana.get(heroName) >= needMP) {
                         System.out.printf("%s has successfully cast %s and now has %d MP!%n", heroName, spellName, heroMana.get(heroName) - needMP);
                         heroMana.put(heroName, heroMana.get(heroName) - needMP);
 
