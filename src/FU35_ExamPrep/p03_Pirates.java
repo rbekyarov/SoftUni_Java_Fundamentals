@@ -39,19 +39,20 @@ public class p03_Pirates {
                 case "Plunder":
                     int killedPeople = Integer.parseInt(arrCommand[2]);
                     int stolenGold = Integer.parseInt(arrCommand[3]);
-                    List<Integer> dataList1 = new ArrayList<>();
+                    List<Integer> dataList = new ArrayList<>();
                     if (cityData.containsKey(town)) {
                         int currentPeople = cityData.get(town).get(0);
                         int currentGold = cityData.get(town).get(1);
-                        if (currentPeople - killedPeople < 0 || currentGold - stolenGold < 0) {
+                        System.out.printf("%s plundered! %d gold stolen, %d citizens killed.%n", town, stolenGold, killedPeople);
+                        if (currentPeople - killedPeople <= 0 || currentGold - stolenGold <= 0) {
                             cityData.remove(town);
-                            System.out.printf("%s has been wiped off the map!", town);
+                            System.out.printf("%s has been wiped off the map!%n", town);
                         } else {
 
-                            dataList1.add(currentPeople - killedPeople);
-                            dataList1.add(currentGold - stolenGold);
-                            cityData.put(town, dataList1);
-                            System.out.printf("%s plundered! %d gold stolen, %d citizens killed.%n", town, stolenGold, killedPeople);
+                            dataList.add(currentPeople - killedPeople);
+                            dataList.add(currentGold - stolenGold);
+                            cityData.put(town, dataList);
+
                         }
                     }
                     break;
@@ -60,11 +61,11 @@ public class p03_Pirates {
                     if (goldProsper < 0) {
                         System.out.println("Gold added cannot be a negative number!");
                     } else {
-                        List<Integer> dataList2 = new ArrayList<>();
+                        List<Integer> dataList1 = new ArrayList<>();
                         if (cityData.containsKey(town)) {
                             int currentGold = cityData.get(town).get(0);
-                            dataList2.add(currentGold + goldProsper);
-                            cityData.put(town, dataList2);
+                            dataList1.add(currentGold + goldProsper);
+                            cityData.put(town, dataList1);
                             System.out.printf("%d gold added to the city treasury. %s now has %d gold.%n", goldProsper, town, currentGold + goldProsper);
                         }
                     }
@@ -73,5 +74,6 @@ public class p03_Pirates {
             }
             inputLine = scanner.nextLine();
         }
+        System.out.printf("");
     }
 }
