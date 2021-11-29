@@ -26,7 +26,6 @@ public class p03_Pirates {
                 dataList.add(gold + currentGold);
                 cityData.put(nameCity, dataList);
             }
-
             input = scanner.nextLine();
         }
         String inputLine = scanner.nextLine();
@@ -48,11 +47,9 @@ public class p03_Pirates {
                             cityData.remove(town);
                             System.out.printf("%s has been wiped off the map!%n", town);
                         } else {
-
                             dataList.add(currentPeople - killedPeople);
                             dataList.add(currentGold - stolenGold);
                             cityData.put(town, dataList);
-
                         }
                     }
                     break;
@@ -69,11 +66,15 @@ public class p03_Pirates {
                             System.out.printf("%d gold added to the city treasury. %s now has %d gold.%n", goldProsper, town, currentGold + goldProsper);
                         }
                     }
-
                     break;
             }
             inputLine = scanner.nextLine();
         }
-        System.out.printf("");
+        System.out.printf("Ahoy, Captain! There are %d wealthy settlements to go to:%n", cityData.size());
+        cityData.entrySet().stream()
+                .sorted((e1, e2) -> e2.getValue().get(1).compareTo(e1.getValue().get(1)))
+                .forEach(e -> {
+                    System.out.printf("%s -> Population: %d citizens, Gold: %d kg%n", e.getKey(), e.getValue().get(0), e.getValue().get(1));
+                });
     }
 }
