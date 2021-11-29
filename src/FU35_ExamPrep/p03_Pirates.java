@@ -64,7 +64,7 @@ public class p03_Pirates {
 
                         if (cityData.containsKey(town)) {
                             int currentGold = cityData.get(town).get(1);
-                            int currentPopulation =cityData.get(town).get(0);
+                            int currentPopulation = cityData.get(town).get(0);
                             dataList1.add(currentPopulation);
                             dataList1.add(currentGold + goldProsper);
 
@@ -80,10 +80,11 @@ public class p03_Pirates {
         cityData.entrySet().stream()
                 .sorted((e1, e2) -> {
                     int result = e2.getValue().get(1).compareTo(e1.getValue().get(1));
-                    if (result==0){
-                        result=e1.getKey().compareTo(e2.getKey());
+                    if (result == 0) {
+                        result = e1.getKey().compareTo(e2.getKey());
                     }
-                    return result;})
+                    return result;
+                })
                 .forEach(e -> {
                     System.out.printf("%s -> Population: %d citizens, Gold: %d kg%n", e.getKey(), e.getValue().get(0), e.getValue().get(1));
                 });
