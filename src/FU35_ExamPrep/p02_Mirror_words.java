@@ -12,7 +12,8 @@ public class p02_Mirror_words {
         String regex = "([@#])(?<word>[A-z]{3,})\\1{2}(?<mirror>[A-z]{3,})";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
-        Map<String, String> mirrorWord = new LinkedHashMap<>();
+        //Map<String, String> mirrorWord = new LinkedHashMap<>();
+        List< String> mirrorWord = new ArrayList<>();
 
         int count = 0;
         while (matcher.find()) {
@@ -25,17 +26,20 @@ public class p02_Mirror_words {
                 checkMirror.append(currentSymbol);
             }
             if (mirror.equals(checkMirror.toString())) {
-                mirrorWord.put(word, mirror);
+                mirrorWord.add(word+" <=> "+mirror);
             }
         }
-
-        System.out.printf("%d word pairs found!%n", count);
-        System.out.println("The mirror words are:");
-
-        mirrorWord.entrySet().stream().forEach(e -> {
-            System.out.print(String.join(", "
-                    ,String.format("%s <=> %s", e.getKey(), e.getValue())));
-        });
+        if (count != 0) {
+            System.out.printf("%d word pairs found!%n", count);
+        } else {
+            System.out.println("No word pairs found!");
+        }
+        if ( count > 0 && mirrorWord.size()>0) {
+            System.out.println("The mirror words are:");
+            System.out.print(String.join(", ", mirrorWord));
+        }else {
+            System.out.println("No mirror words!");
+        }
     }
 }
 
